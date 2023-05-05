@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cadastroUser.css">
+    <title>Cadastro Produtos</title>
+</head>
+<body>
+    <form>
+        <label for="produto-imagem">Imagem do produto:</label>
+        <input type="file" id="produto-imagem" name="produto-imagem">
+        <img id="produto-imagem-preview">
+
+        <label for="produto-nome">Nome do Produto:</label>
+        <input type="text" id="produto-nome" name="produto-nome">
+    
+        <label for="produto-categoria">Categoria do Produto:</label>
+        <select name="produto-categoria" id="produto-categoria">
+            <option value="">Selecione uma categoria para seu produto</option>
+            <option value="1">Vasos Artesanais</option>
+            <option value="2">Acessórios</option>
+            <option value="3">Roupas da ilha</option>
+        </select>
+    
+        <label for="produto-preco">Preço do produto:</label>
+        <input type="text" id="produto-preco" name="produto-preco">
+    
+        <label for="produto-desc">Descrição do produto:</label>
+        <textarea name="produto-desc" id="produto-desc"></textarea>
+    
+        <button type="submit">Cadastrar Produto</button>
+    </form>
+</body>
+<script>
+    const input = document.getElementById('produto-imagem');
+    const preview = document.getElementById('produto-imagem-preview');
+  
+    input.addEventListener('change', () => {
+      const file = input.files[0];
+      const reader = new FileReader();
+  
+      reader.onload = () => {
+        preview.src = reader.result;
+      };
+  
+      reader.readAsDataURL(file);
+    });
+  </script>
+</html>
